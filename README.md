@@ -1,29 +1,59 @@
-# Jabulani Mcineka Portfolio
+# My Data Projects
 
-This is a static HTML portfolio for **Jabulani Makhosonke Mcineka**, showcasing his experience as a Data Manager, Data Analyst, and Developer. The website is designed using Tailwind CSS and provides information about his skills, experience, projects, and academic background.
-
-## About
-Jabulani is a detail-oriented and tech-driven Data Manager with strong experience in data pipeline automation, SQL databases, ETL workflows, and Power BI reporting. He currently works at the Africa Health Research Institute.
-
-##Technologies Used
-- **HTML**
-- **Tailwind CSS** (via CDN)
-- Responsive layout
-
-## Structure
-- `index.html` – main page with sections:
-  - About Me
-  - Skills
-  - Projects
-  - Experience
-  - Education
-
-## How to View
-Open `Jabulani_Mcineka_Portfolio.html` in any web browser. No server or build tools are required.
-
-## 📬 Contact
-- **Email:** mjeymcineka@gmail.com
-- **Location:** South Africa (available US hours)
+This repository contains two beginner-friendly data projects demonstrating **data analysis, cleaning, and visualization** using Python and SQLite.
 
 ---
-© 2025 Jabulani Makhosonke Mcineka. All rights reserved.
+
+## 1️⃣ Sales Data Warehouse Project
+
+Create a small **Sales Data Warehouse** and analyze sales data.
+
+### Project Structure
+
+sales_dw_project/
+├── data/ # CSV files
+│ ├── sales.csv
+│ ├── products.csv
+│ ├── customers.csv
+│ └── regions.csv
+├── scripts/ # Python scripts
+│ ├── create_dw.py
+│ └── data_wrangling.py
+└── notebooks/
+└── 01_eda_sales.ipynb
+
+
+### How to Run
+python scripts/create_dw.py
+python scripts/data_wrangling.py
+jupyter notebook notebooks/01_eda_sales.ipynb
+
+
+2️⃣ Facility Visits Analysis Project
+Analyze patient visit and demographic data.
+
+Project Structure
+
+facility_visits_analysis/
+├── data/
+│   ├── Persons.csv
+│   └── FacilityVisits.csv
+├── scripts/
+│   ├── facility_visits_analysis.py
+│   └── Scrap.py
+└── output/                # Cleaned data & plots (created after running the script)
+
+
+How to Run
+mkdir output
+python scripts/facility_visits_analysis.py
+
+Tools Used
+Python
+
+SQLite
+
+Pandas
+
+Matplotlib / Seaborn
+
