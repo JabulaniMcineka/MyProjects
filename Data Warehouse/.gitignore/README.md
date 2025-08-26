@@ -21,9 +21,6 @@ sales_dw_project/
 ├── .gitignore
 └── README.md
 
-pgsql
-Copy
-Edit
 
 ---
 
