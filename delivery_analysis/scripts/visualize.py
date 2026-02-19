@@ -6,10 +6,9 @@ import seaborn as sns
 # -------------------------------
 # 1️⃣ Connect to SQL Server
 # -------------------------------
-server = r'NBDBNPF3W63YL\DEVELOPER19'
-database = 'Jabulani'
-username = 'sa'
-password = 'Mjey@yahoo1'
+#server = r''
+#database = ''
+#password = ''
 
 conn = pyodbc.connect(
     'DRIVER={ODBC Driver 18 for SQL Server};'
