@@ -1,0 +1,25 @@
+import sqlite3
+
+conn = sqlite3.connect("deliveries.db")
+cursor = conn.cursor()
+
+tables = ["delivery", "deliveries", "customers", "cities", "carriers"]
+
+for table in tables:
+    print(f"\n===== TABLE: {table} =====")
+
+    # Get column names
+    cursor.execute(f"PRAGMA table_info({table});")
+    columns = [col[1] for col in cursor.fetchall()]
+    print("Columns:", columns)
+
+    # Get all rows
+    cursor.execute(f"SELECT * FROM {table};")
+    rows = cursor.fetchall()
+
+    for row in rows:
+        print(row)
+
+    print(f"Total rows: {len(rows)}")
+
+conn.close()
