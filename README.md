@@ -4,7 +4,7 @@ This repository contains two beginner-friendly data projects demonstrating **dat
 
 ---
 
-## 1️⃣ Sales Data Warehouse Project
+## Sales Data Warehouse Project
 
 Create a small **Sales Data Warehouse** and analyze sales data.
 
@@ -29,7 +29,7 @@ python scripts/data_wrangling.py
 jupyter notebook notebooks/01_eda_sales.ipynb
 
 
-2️⃣ Facility Visits Analysis Project
+Facility Visits Analysis Project
 Analyze patient visit and demographic data.
 
 Project Structure
