@@ -1,0 +1,117 @@
+*   [33m95315ae[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m Merge branch 'master' of github.com:JabulaniMcineka/MyProjects
+[31m|[m[32m\[m  
+[31m|[m * [33m3304143[m Initial commit: EC2 Node.js + Nginx + Docker setup^C
+[31m|[m *   [33m28cdfd8[m Merge pull request #138 from heroku/add-deprecation-message
+[31m|[m [33m|[m[34m\[m  
+[31m|[m [33m|[m * [33m90421e4[m Update format
+[31m|[m [33m|[m * [33m027a230[m add redirect message
+[31m|[m [33m|[m[33m/[m  
+[31m|[m *   [33m4d7f659[m Merge pull request #105 from heroku/fix-logo
+[31m|[m [35m|[m[36m\[m  
+[31m|[m [35m|[m * [33m7b80c7d[m Fix missing Node logo
+[31m|[m [35m|[m[35m/[m  
+[31m|[m * [33m01262b6[m Update node to 4.0.0 and express to 4.13.3
+[31m|[m * [33mca54ef4[m Remove npm-shrinkwrap
+[31m|[m *   [33m7111909[m Merge pull request #77 from djkmiles/master
+[31m|[m [1;31m|[m[1;32m\[m  
+[31m|[m [1;31m|[m * [33m03f3e81[m Add Procfile with basic web starter line to automatically start app.
+[31m|[m * [1;32m|[m   [33mee6f7c4[m Merge pull request #82 from heroku/mattcreager/specific-version
+[31m|[m [1;33m|[m[1;34m\[m [1;32m\[m  
+[31m|[m [1;33m|[m * [1;32m|[m [33m2236180[m Specify node version, because Docker
+[31m|[m [1;33m|[m[1;33m/[m [1;32m/[m  
+[31m|[m * [1;32m|[m   [33m4f1b924[m Merge pull request #80 from saadq/patch-1
+[31m|[m [1;32m|[m[1;36m\[m [1;32m\[m  
+[31m|[m [1;32m|[m [1;36m|[m[1;32m/[m  
+[31m|[m [1;32m|[m[1;32m/[m[1;36m|[m   
+[31m|[m [1;32m|[m * [33mab1a128[m Fix inconsistency in coding style
+[31m|[m [1;32m|[m[1;32m/[m  
+[31m|[m * [33m015669f[m Remove experimental wording
+[31m|[m *   [33m452bb47[m Merge pull request #76 from heroku/twelve
+[31m|[m [31m|[m[32m\[m  
+[31m|[m [31m|[m * [33m7410e01[m Add shrinkwrap
+[31m|[m [31m|[m * [33m2ae941a[m Upgrade to Node 0.12
+[31m|[m [31m|[m[31m/[m  
+[31m|[m * [33m97a7c5c[m wording
+[31m|[m * [33m743ceca[m use https for button
+[31m|[m * [33m5b7a371[m use the new deploy button
+[31m|[m * [33mc8cbd7c[m add heroku deploy button
+[31m|[m * [33m7dbc811[m update url in deploy button
+[31m|[m * [33m7c863ad[m use https for deploy button url
+[31m|[m * [33mf9c95c3[m get the clone url right
+[31m|[m * [33m4fdcb98[m add deploy button
+[31m|[m * [33mcb6999d[m update app.json
+[31m|[m * [33mfe12f4d[m update logo url in app.json
+[31m|[m * [33mf1cf433[m nothing
+[31m|[m * [33m97aa7ef[m goodbye, Procfile
+[31m|[m * [33m890227f[m update description
+[31m|[m * [33m24848e5[m add app.json
+[31m|[m * [33mc86a9b8[m add node logo and express static
+[31m|[m * [33m10f66c5[m improve readme
+[31m|[m * [33m9717c83[m express 4!
+[31m|[m * [33m6c4983c[m update license, contributors, and keywords
+[31m|[m * [33m4f8377f[m rename web.js to index.js, a la npm defaults
+[31m|[m *   [33maa66b5c[m Merge branch 'master' of github.com:heroku/node-js-sample
+[31m|[m [33m|[m[34m\[m  
+[31m|[m [33m|[m * [33m2e52ce7[m Update documentation links
+[31m|[m [33m|[m * [33m306d9b3[m Update version of Express
+[31m|[m * [34m|[m [33mf087aba[m empty
+[31m|[m [34m|[m[34m/[m  
+[31m|[m * [33me543fcc[m Remove path level so always use the latest node and npm
+[31m|[m * [33m42d56bf[m Update node and npm
+[31m|[m * [33mf0a7d6b[m use latest versions of node and npm on heroku
+[31m|[m * [33m48a4fff[m fix markdown typo
+[31m|[m * [33m7c9bb82[m add devcenter links to readme
+[31m|[m * [33mc58ea9e[m add a README
+[31m|[m * [33m5bbaaab[m bump the version
+[31m|[m * [33mb3650bf[m default to the latest versions of node and npm on heroku
+[31m|[m * [33mec7ac00[m use the latest version of express
+[31m|[m *   [33m950a10a[m Merge pull request #7 from samccone/sjs/fix-example-app
+[31m|[m [35m|[m[36m\[m  
+[31m|[m [35m|[m * [33me1e21ec[m update package.json
+[31m|[m [35m|[m * [33m437f901[m ignore node_modules with .gitignore
+[31m|[m [35m|[m * [33m4b88103[m remove node_modules folder from repo
+[31m|[m [35m|[m[35m/[m  
+[31m|[m * [33m90fd58e[m init
+* [33ma69ddda[m Initial commit: EC2 Node.js + Nginx + Docker setup
+* [33m52714f7[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m upadeat
+*   [33m3c0645f[m Merge branch 'main' of https://github.com/JabulaniMcineka/MyProjects
+[1;32m|[m[1;33m\[m  
+[1;32m|[m * [33m71306e7[m Revise project structure formatting in README
+* [1;33m|[m [33mc5663b2[m new project
+[1;33m|[m[1;33m/[m  
+* [33m94c85bd[m updates
+* [33m2ae2953[m Delivery_full_project
+* [33m1fce641[m Created using Colab
+* [33ma310bcc[m Created using Colab
+* [33me2b7d19[m Update visualize.py
+* [33m8fc6914[m Created using Colab
+* [33m1bfefb4[m Update Clinic_data_Analysis.ipynb
+* [33m019c505[m Created using Colab
+* [33mdac8362[m Update Clinic_data_Analysis.ipynb
+* [33md4141ae[m Created using Colab
+* [33m205294d[m Created using Colab
+* [33m353716b[m Created using Colab
+* [33m4ffad6f[m Created using Colab
+* [33m3684ea6[m Remove checkmarks and update print statements
+* [33m896e23f[m Created using Colab
+* [33m220c6eb[m Created using Colab Clinical dashboard
+* [33me8f20e9[m Created using Colab
+* [33m82c2874[m Created using Colab
+* [33m4f87f74[m uddates
+* [33me0801b0[m updates
+* [33m4ef778f[m adding projects
+* [33mdc5f558[m changes
+* [33m609c5d1[m ading
+* [33mf37fa1b[m git cleanup
+* [33m0c09446[m Create scripts
+* [33m83d2b41[m Update README.md
+* [33m532aada[m Update README.md
+* [33ma08e8b6[m Update README.md
+* [33m70053d6[m Add files via upload
+* [33m6d046e7[m Create d
+* [33m83806c1[m Create data_wangling.py
+* [33m3939cb9[m Create README.md
+* [33m2125e5f[m Create create_dw.py
+* [33mbabaf46[m Add files via upload
+* [33m8d60a88[m Update README.md
+* [33m7e97617[m Initial commit
