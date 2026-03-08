@@ -1,10 +1,10 @@
-# 🛒 E-Commerce Real-Time Data Pipeline
+#  E-Commerce Real-Time Data Pipeline
 
 > A production-grade data engineering pipeline built on AWS Free Tier — ingesting, transforming, and serving e-commerce data using Python, S3, Glue, Athena, and Airflow.
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────────┐     ┌──────────────┐     ┌──────────────────┐     ┌─────────────┐
@@ -40,7 +40,7 @@
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ecommerce-data-pipeline/
@@ -62,7 +62,7 @@ ecommerce-data-pipeline/
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Python 3.11+
@@ -102,7 +102,7 @@ python tests/validate.py
 
 ---
 
-## 📊 Data Model
+##  Data Model
 
 ### Products (Silver)
 | Column | Type | Description |
@@ -138,7 +138,7 @@ python tests/validate.py
 
 ---
 
-## 🔍 Example Athena Queries
+##  Example Athena Queries
 
 ```sql
 -- Top selling product categories
@@ -166,17 +166,17 @@ LIMIT 10;
 
 ---
 
-## ✅ Data Quality Checks
+##  Data Quality Checks
 
 The pipeline runs automated checks after each load:
-- ✅ Row count > 0 for all tables
-- ✅ No null or zero prices in products
-- ✅ No invalid quantities in carts
-- ✅ Schema validation on each run
+-  Row count > 0 for all tables
+-  No null or zero prices in products
+-  No invalid quantities in carts
+-  Schema validation on each run
 
 ---
 
-## 🔄 Pipeline Schedule
+##  Pipeline Schedule
 
 The Airflow DAG runs daily at **6:00 AM UTC**:
 1. `ingest_raw_data` — Pulls from Fake Store API → S3 Raw
@@ -186,7 +186,7 @@ The Airflow DAG runs daily at **6:00 AM UTC**:
 
 ---
 
-## 👤 Author
+##  Author
 
 **Jabulani Mcineka**
 - AWS Certified Cloud Practitioner
@@ -195,5 +195,5 @@ The Airflow DAG runs daily at **6:00 AM UTC**:
 
 ---
 
-## 📄 License
+##  License
 MIT
