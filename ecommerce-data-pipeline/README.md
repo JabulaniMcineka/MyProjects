@@ -21,14 +21,14 @@
 ##  Screenshots
 
 ###  Airflow DAG — All 4 Tasks Green
-![Airflow DAG](ecommerce-data-pipeline/screenshots/airflow_dag.png)
+![Airflow DAG](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/airflow_dag.png)
 
 ###  AWS S3 Buckets — Raw & Silver
-![S3 Buckets](ecommerce-data-pipeline/screenshots/s3_buckets.png)
+![S3 Buckets](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/s3_buckets.png)
 
 
 ###  Athena Query Results — Silver Tables
-![Athena Results](ecommerce-data-pipeline/screenshots/athena_results.png)
+![Athena Results](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/athena_results.png)
 
 ---
 
