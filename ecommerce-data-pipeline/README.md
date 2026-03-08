@@ -16,7 +16,9 @@
         │                                             │
         └──────────── Apache Airflow DAG (Orchestration) ──────────────┘
 
-```##  Screenshots
+---
+
+##  Screenshots
 
 ###  Airflow DAG — All 4 Tasks Green
 ![Airflow DAG](screenshots/airflow_dag.png)
@@ -26,6 +28,8 @@
 
 ###  Athena Query Results — Silver Tables
 ![Athena Results](screenshots/athena_results.png)
+
+---
 
 ### Medallion Architecture
 | Layer | Location | Format | Description |
