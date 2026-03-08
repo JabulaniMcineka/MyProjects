@@ -11,8 +11,8 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 REGION          = "us-east-1"
-RAW_BUCKET      = "ecommerce-data-pipeline-raw"
-SILVER_BUCKET   = "ecommerce-data-pipeline-silver"
+RAW_BUCKET      = "ecommerce-pipeline-raw-797795454172"
+SILVER_BUCKET   = "ecommerce-pipeline-silver-797795454172"
 GLUE_ROLE_NAME  = "ecommerce-glue-role"
 CRAWLER_NAME    = "ecommerce-silver-crawler"
 ATHENA_DB       = "ecommerce_silver"
@@ -97,7 +97,7 @@ def run():
     create_glue_role()
     create_glue_crawler()
     create_athena_database()
-    logger.info("✅ Infrastructure setup complete!")
+    logger.info("Infrastructure setup complete!")
     logger.info(f"  Raw bucket:    s3://{RAW_BUCKET}")
     logger.info(f"  Silver bucket: s3://{SILVER_BUCKET}")
     logger.info(f"  Glue crawler:  {CRAWLER_NAME}")

@@ -1,11 +1,6 @@
 from datetime import datetime, timedelta
 from airflow import DAG
-from datetime import datetime, timedelta
-from airflow import DAG
-from airflow.operators.python import PythonOperator
 from airflow.operators.bash import BashOperator
-import boto3
-import time
 
 default_args = {
     "owner": "jabulani",
@@ -35,22 +30,9 @@ with DAG(
         bash_command="cd /opt/airflow/project && python transformation/transform.py",
     )
 
-    def run_crawler():
-    client = boto3.client("glue", region_name="us-east-1")
-    client.start_crawler(Name="ecommerce-silver-crawler")
-    print("Crawler started...")
-    while True:
-        state = client.get_crawler(Name="ecommerce-silver-crawler")["Crawler"]["State"]
-        print(f"Crawler state: {state}")
-        if state == "READY":
-            print(" Crawler finished!")
-            break
-        time.sleep(10)
-
-crawl = PythonOperator(
-    task_id="run_glue_crawler",
-    python_callable=run_crawler,
-)crawler --region us-east-1",
+    crawl = BashOperator(
+        task_id="run_glue_crawler",
+        bash_command="aws glue start-crawler --name ecommerce-silver-crawler --region us-east-1",
     )
 
     validate = BashOperator(
