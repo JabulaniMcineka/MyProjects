@@ -15,7 +15,17 @@
         │               AWS Glue Crawler        AWS Glue ETL
         │                                             │
         └──────────── Apache Airflow DAG (Orchestration) ──────────────┘
-```
+
+```##  Screenshots
+
+###  Airflow DAG — All 4 Tasks Green
+![Airflow DAG](screenshots/airflow_dag.png)
+
+###  AWS S3 Buckets — Raw & Silver
+![S3 Buckets](screenshots/s3_buckets.png)
+
+###  Athena Query Results — Silver Tables
+![Athena Results](screenshots/athena_results.png)
 
 ### Medallion Architecture
 | Layer | Location | Format | Description |
@@ -26,7 +36,7 @@
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Tool | Purpose | Cost |
 |---|---|---|
