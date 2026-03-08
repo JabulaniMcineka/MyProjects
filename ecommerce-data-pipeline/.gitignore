@@ -1,0 +1,6 @@
+.env
+docker-compose.yml
+setup_aws.py
+__pycache__/
+*.pyc
+.aws/
