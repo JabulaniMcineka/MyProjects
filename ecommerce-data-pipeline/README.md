@@ -1,10 +1,16 @@
-#  E-Commerce Real-Time Data Pipeline
+# 🛒 E-Commerce Real-Time Data Pipeline
 
-> A production-grade data engineering pipeline built on AWS Free Tier — ingesting, transforming, and serving e-commerce data using Python, S3, Glue, Athena, and Airflow.
+> A production-grade data engineering pipeline built on AWS Free Tier — ingesting, transforming, and serving e-commerce data using Python, S3, Glue, Athena, and Apache Airflow.
+
+![Python](https://img.shields.io/badge/Python-3.12-blue)
+![AWS](https://img.shields.io/badge/AWS-Free%20Tier-orange)
+![Airflow](https://img.shields.io/badge/Apache%20Airflow-2.8.1-green)
+![Docker](https://img.shields.io/badge/Docker-Compose-blue)
+![Status](https://img.shields.io/badge/Pipeline-✅%20Running-brightgreen)
 
 ---
 
-##  Architecture
+## 🏗️ Architecture
 
 ```
 ┌─────────────────┐     ┌──────────────┐     ┌──────────────────┐     ┌─────────────┐
@@ -15,70 +21,67 @@
         │               AWS Glue Crawler        AWS Glue ETL
         │                                             │
         └──────────── Apache Airflow DAG (Orchestration) ──────────────┘
-
-└──────────────────┘
----
-
-##  Screenshots
-
-###  Airflow DAG — All 4 Tasks Green
-![Airflow DAG](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/airflow_dag.png)
-
-###  AWS S3 Buckets — Raw & Silver
-![S3 Buckets](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/s3_buckets.png)
-
-
-###  Athena Query Results — Silver Tables
-![Athena Results](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/athena_results.png)
-
----
+```
 
 ### Medallion Architecture
 | Layer | Location | Format | Description |
 |---|---|---|---|
-| **Raw** | `s3://ecommerce-data-pipeline-raw/raw/` | JSON | Unmodified API data |
-| **Silver** | `s3://ecommerce-data-pipeline-silver/silver/` | Parquet | Cleaned & typed |
+| **Raw** | `s3://ecommerce-pipeline-raw-{account_id}/raw/` | JSON | Unmodified API data |
+| **Silver** | `s3://ecommerce-pipeline-silver-{account_id}/silver/` | Parquet | Cleaned & typed |
 | **Gold** | Athena Views | SQL Views | Aggregated for reporting |
 
 ---
 
-##  Tech Stack
+## 📸 Screenshots
 
-| Tool | Purpose | Cost |
-|---|---|---|
-| Python 3.11 | Ingestion & transformation | Free |
-| AWS S3 | Data lake storage | Free tier |
-| AWS Glue | Crawling & cataloging | Free tier |
-| AWS Athena | SQL querying | Free tier |
-| Apache Airflow | Orchestration | Free (Docker) |
-| Docker Compose | Local environment | Free |
-| GitHub Actions | CI/CD | Free |
+### ✅ Airflow DAG — All 4 Tasks Green
+![Airflow DAG](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/airflow_dag.png)
+
+### 🪣 AWS S3 Buckets — Raw & Silver
+![S3 Buckets](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/s3_buckets.png)
+
+### 🔍 Athena Query Results — Silver Tables
+![Athena Results](https://raw.githubusercontent.com/JabulaniMcineka/MyProjects/main/ecommerce-data-pipeline/screenshots/athena_results.png)
 
 ---
 
-##  Project Structure
+## 🛠️ Tech Stack
+
+| Tool | Version | Purpose | Cost |
+|---|---|---|---|
+| Python | 3.12 | Ingestion & transformation scripts | Free |
+| AWS S3 | Free Tier | Data lake storage (Raw & Silver zones) | Free |
+| AWS Glue | Free Tier | Crawling & Athena table cataloging | Free |
+| AWS Athena | Free Tier | SQL querying on Parquet files | Free |
+| Apache Airflow | 2.8.1 | Pipeline orchestration & scheduling | Free (Docker) |
+| Docker Compose | Latest | Local Airflow environment | Free |
+| PostgreSQL | 13 | Airflow metadata database | Free |
+
+---
+
+## 📁 Project Structure
 
 ```
 ecommerce-data-pipeline/
 ├── ingestion/
-│   └── ingest.py           # API → S3 Raw
+│   └── ingest.py               # Fake Store API → S3 Raw (JSON)
 ├── transformation/
-│   └── transform.py        # Raw JSON → Silver Parquet
+│   └── transform.py            # Raw JSON → Silver Parquet
 ├── orchestration/
 │   └── dags/
-│       └── ecommerce_dag.py # Airflow DAG
+│       └── ecommerce_dag.py    # Airflow DAG (daily @ 6AM UTC)
 ├── infrastructure/
-│   └── setup_aws.py        # One-time AWS setup
+│   └── setup_aws.py            # One-time AWS bootstrap
 ├── tests/
-│   └── validate.py         # Data quality checks
-├── docker-compose.yml      # Local Airflow stack
+│   └── validate.py             # Data quality checks via Athena
+├── docker-compose.yml          # Local Airflow stack
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-##  Getting Started
+## 🚀 Getting Started
 
 ### Prerequisites
 - Python 3.11+
@@ -97,20 +100,32 @@ cd ecommerce-data-pipeline
 pip install -r requirements.txt
 ```
 
-### 3. Set up AWS infrastructure (run once)
+### 3. Configure AWS credentials
+```bash
+aws configure
+```
+Enter your Access Key ID, Secret Access Key, region (`us-east-1`), and output format (`json`).
+
+### 4. Set up AWS infrastructure (run once)
 ```bash
 python infrastructure/setup_aws.py
 ```
+This creates S3 buckets, IAM role, Glue crawler, and Athena database.
 
-### 4. Start Airflow locally
+> ⚠️ **Note:** S3 bucket names must be globally unique. Update `RAW_BUCKET` and `SILVER_BUCKET` in `setup_aws.py`, `ingest.py`, and `transform.py` to include your AWS account ID as a suffix.
+
+### 5. Start Airflow locally
 ```bash
 docker-compose up -d
 ```
 Visit **http://localhost:8080** — login: `admin` / `admin`
 
-### 5. Trigger the pipeline manually
+### 6. Trigger the pipeline
+- Enable the `ecommerce_pipeline` DAG in the Airflow UI
+- Click **▶ Trigger DAG** to run manually
+- Or run scripts directly:
+
 ```bash
-# Or trigger via Airflow UI
 python ingestion/ingest.py
 python transformation/transform.py
 python tests/validate.py
@@ -118,7 +133,24 @@ python tests/validate.py
 
 ---
 
-##  Data Model
+## 🔄 Airflow DAG
+
+The DAG runs daily at **6:00 AM UTC**:
+
+```
+ingest_raw_data → transform_to_silver → run_glue_crawler → validate_data_quality
+```
+
+| Task | Operator | Description |
+|---|---|---|
+| `ingest_raw_data` | BashOperator | Pulls from Fake Store API → S3 Raw |
+| `transform_to_silver` | BashOperator | Cleans & writes Parquet → S3 Silver |
+| `run_glue_crawler` | BashOperator | Updates Athena catalog |
+| `validate_data_quality` | BashOperator | Runs data quality checks |
+
+---
+
+## 📊 Data Model
 
 ### Products (Silver)
 | Column | Type | Description |
@@ -126,10 +158,10 @@ python tests/validate.py
 | id | INT | Product ID |
 | title | STRING | Product name |
 | price | FLOAT | Price in USD |
-| category | STRING | Product category |
-| rating_rate | FLOAT | Average rating |
+| category | STRING | Product category (normalised) |
+| rating_rate | FLOAT | Average customer rating |
 | rating_count | INT | Number of ratings |
-| ingested_at | TIMESTAMP | Pipeline run time |
+| ingested_at | TIMESTAMP | Pipeline run timestamp |
 
 ### Users (Silver)
 | Column | Type | Description |
@@ -140,21 +172,21 @@ python tests/validate.py
 | first_name | STRING | First name |
 | last_name | STRING | Last name |
 | city | STRING | City |
-| ingested_at | TIMESTAMP | Pipeline run time |
+| ingested_at | TIMESTAMP | Pipeline run timestamp |
 
 ### Carts (Silver)
 | Column | Type | Description |
 |---|---|---|
 | id | INT | Cart ID |
-| userId | INT | User ID (FK) |
-| date | DATE | Cart date |
-| product_id | INT | Product ID (FK) |
+| userId | INT | User ID (FK → users.id) |
+| date | DATE | Cart creation date |
+| product_id | INT | Product ID (FK → products.id) |
 | quantity | INT | Quantity ordered |
-| ingested_at | TIMESTAMP | Pipeline run time |
+| ingested_at | TIMESTAMP | Pipeline run timestamp |
 
 ---
 
-##  Example Athena Queries
+## 🔍 Example Athena Queries
 
 ```sql
 -- Top selling product categories
@@ -182,34 +214,42 @@ LIMIT 10;
 
 ---
 
-##  Data Quality Checks
+## ✅ Data Quality Checks
 
-The pipeline runs automated checks after each load:
--  Row count > 0 for all tables
--  No null or zero prices in products
--  No invalid quantities in carts
--  Schema validation on each run
+Automated checks run after every load via AWS Athena:
 
----
-
-##  Pipeline Schedule
-
-The Airflow DAG runs daily at **6:00 AM UTC**:
-1. `ingest_raw_data` — Pulls from Fake Store API → S3 Raw
-2. `transform_to_silver` — Cleans & writes Parquet → S3 Silver
-3. `run_glue_crawler` — Updates Athena catalog
-4. `validate_data_quality` — Runs quality checks
+| Check | Query | Expected |
+|---|---|---|
+| `products_row_count` | COUNT(*) on products | > 0 |
+| `products_no_null_price` | WHERE price IS NULL OR price <= 0 | = 0 |
+| `users_row_count` | COUNT(*) on users | > 0 |
+| `carts_valid_quantities` | WHERE quantity <= 0 | = 0 |
 
 ---
 
-##  Author
+## 🐛 Troubleshooting
+
+| Issue | Fix |
+|---|---|
+| `InvalidAccessKeyId` | Run `aws configure` with fresh keys from AWS Console |
+| `BucketAlreadyExists` | S3 names are global — add your AWS account ID as suffix |
+| `AccessDenied` on S3 | Attach `AmazonS3FullAccess` policy to your IAM user |
+| Airflow DAG not showing | Ensure `ecommerce_dag.py` is in `orchestration/dags/` |
+| Athena table not found | Run Glue crawler before validation |
+| Docker webserver not starting | Ensure `airflow-init` completes before webserver starts |
+
+---
+
+## 👤 Author
 
 **Jabulani Mcineka**
-- AWS Certified Cloud Practitioner
-- Data Engineering Certified
-- Postgraduate Diploma in Computer Science
+- 🏅 AWS Certified Cloud Practitioner (2025)
+- 🏅 AWS Certified Data Engineer – Associate (2025)
+- 🎓 Postgraduate Diploma in Computer Science — Tshwane University of Technology
+- 🔗 [LinkedIn](https://www.linkedin.com/in/jabulani-mcineka-941360182)
+- 💻 [GitHub](https://github.com/JabulaniMcineka)
 
 ---
 
-##  License
+## 📄 License
 MIT
